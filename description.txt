@@ -1,0 +1,2 @@
+For my project i want to make a sales website for a cnc machine shop. In this website a customer can place preset or custom orders (via submiting schematics). 
+This website may also include current prices for materials and other details about the economy.
