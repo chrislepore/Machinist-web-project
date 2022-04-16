@@ -1,0 +1,28 @@
+{
+  "name": "project_machine",
+  "version": "1.0.0",
+  "description": "machinist sales system",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrislepore/Machinist-web-project.git"
+  },
+  "keywords": [
+    "machine",
+    "cnc",
+    "sales"
+  ],
+  "author": "christopher lepore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrislepore/Machinist-web-project/issues"
+  },
+  "homepage": "https://github.com/chrislepore/Machinist-web-project#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
