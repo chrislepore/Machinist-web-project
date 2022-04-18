@@ -1,6 +1,9 @@
 const usersBtn = document.getElementById("users-btn");
 usersBtn.addEventListener('click', getUsers);
 
+const login_to = document.getElementById("loging-in");
+login_to.addEventListener('click', login(login_to));
+
 function getUsers() {
   fetch("http://localhost:3000/users")
   .then((res) => res.json())

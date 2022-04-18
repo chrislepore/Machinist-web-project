@@ -1,13 +1,15 @@
 const users = [
     {
     userId: 12345,
-    userName: "cathy123",
+    userName: "chris123",
     Email: "leporec1@newpaltz.edu",
+    password: "Bailey",
     },
     {
     userId: 55555,
     userName: "fredburger54",
     Email: "chrisl2000@live.com",
+    password: "Badf",
     }
 ];
 

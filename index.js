@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
 });
 app.use("/users", userRoutes);
 app.get('*', function (req, res) {
- res.sendFile(path.resolve(__dirname, 'public', 'bmi.html'));
+ res.sendFile(path.resolve(__dirname, 'public', 'home.html'));
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, ( ) => console.log(`Server started on port ${PORT}!`)); 
