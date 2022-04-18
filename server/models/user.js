@@ -22,4 +22,4 @@ function login(username, password){
     return user[0];
 }
 
-module.exports = { getUsers, login};
+module.exports = {getUsers, login};

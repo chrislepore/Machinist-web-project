@@ -1,8 +1,8 @@
 const usersBtn = document.getElementById("users-btn");
-usersBtn.addEventListener('click', getUsers);
+if(usersBtn) usersBtn.addEventListener('click', getUsers);
 
-const login_to = document.getElementById("loging-in");
-login_to.addEventListener('click', login(login_to));
+const login_to = document.getElementById("login-form");
+if(login_to) login_to.addEventListener('submit', login);
 
 function getUsers() {
   fetch("http://localhost:3000/users")
@@ -23,8 +23,8 @@ function getUsers() {
 function login(e){
   e.preventDefault();
 
-  const uid = document.getElementsById("uid").value;
-  const pwd = document.getElementsById("pwd").value;
+  const uid = document.getElementById("uid").value;
+  const pwd = document.getElementById("pwd").value;
   postData('http://localhost:3000/users/login', {username: uid, password: pwd})
   .then((data) => {
     if(!data.message){
@@ -50,7 +50,7 @@ async function postData(url = '', data = {}){
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(data)
   });
-  if(responce.ok){
+  if(response.ok){
     return await response.json();
   }else{
     throw await response.json();
