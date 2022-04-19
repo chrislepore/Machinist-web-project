@@ -15,7 +15,7 @@ input{
     border-radius: 5px;
 }
 
-button{
+.button{
     display: block;
     background-color: rgb(111, 0, 255);
     color: white;

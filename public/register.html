@@ -18,10 +18,10 @@
       <section>
         <div class="signup">
           <h4>Signup</h4>
-          <form action="#to-server" method="post">
+          <form id="register-form">
             <p>Don't have an account yet? Sign up here!</p>
             <label for="uid">Username/Email:</label>
-            <input type="text" name="uid" placeholder="Username/Email">
+            <input type="text" id="uid" placeholder="Username/Email">
             <br>
             <label for="fname">First Name:</label>
             <input type="text" id="fname" name="fname" placeholder="First Name">
@@ -33,10 +33,10 @@
             <label for="birthday">Birthday:</label>
             <input type="date" id="birthday" name="birthday" placeholder="Birthday">
             <br>
-            <button type="submit" name="submit">SIGN UP</button>
+            <input type="submit" id="register" class="button"></input>
           </form>
         </div>
     </section>
-
+    <script src="main.js"></script>
 </body>
 </html>
