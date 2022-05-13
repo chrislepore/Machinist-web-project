@@ -23,6 +23,11 @@
   },
   "homepage": "https://github.com/chrislepore/Machinist-web-project#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "dotenv": "^16.0.1",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
