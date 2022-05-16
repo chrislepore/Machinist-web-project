@@ -1,7 +1,9 @@
 if(getCurrentUser()) {
-  window.location.href = "home.html";
-} else {
-  //if($('html') !== "about.html" || window.location.href !== "login.html" || window.location.href !== "register.html" ) window.location.href = "about.html";
+  if(window.location.pathname == '/public/about.html' || window.location.pathname == '/public/register.html' || window.location.pathname == '/public/login.html') {
+    window.location.href = "home.html";
+  }
+}else if(!(window.location.pathname == '/public/about.html' || window.location.pathname == '/public/register.html' || window.location.pathname == '/public/login.html')){
+  window.location.href = "about.html";
 }
 
 // http://localhost:3000
@@ -44,5 +46,4 @@ if(logoutBtn) logoutBtn.addEventListener('click', logout)
 
 export function logout() {
   removeCurrentUser();
-  window.location.href = "login.html";
 }

@@ -70,11 +70,14 @@ async function userExists(username) {
 }
 
 async function editUser(user) {
+  const u = userExists(user.username);
+  if(u.length>0) throw Error("Username already exists");
+
   const sql = `UPDATE users SET
     username = "${user.username}",
     user_password = "${user.password}",
     Company = "${user.company}",
-    Address = "${user.address}",
+    Address = "${user.address}"
     WHERE user_id = ${user.userId}
   `;
   const update = await con.query(sql);

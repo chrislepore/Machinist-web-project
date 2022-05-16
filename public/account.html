@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Account</title>
     <link rel="stylesheet" href="/public/styles/styles.css">
 </head>
 <body>
@@ -14,10 +14,29 @@
             <a href="/public/home.html">HOME</a>
             <a href="/public/create_part.html">CREATE PART</a>
             <a href="/public/payments.html">PAYMENTS</a>
+            <a href="/public/login.html" id="logout">LOGOUT</a>
         </nav>
-      </header>
-      
-      
-
+    </header>
+    <center><section class="account_info" id="acc">
+        <dl>
+            <dt>Username:</dt>
+            <dd id="uid"></dd>
+            <br>
+            <dt>Password:</dt>
+            <dd id="pwd"></dd>
+            <br>
+            <dt>Company:</dt>
+            <dd id="comp"></dd>
+            <br>
+            <dt>Address:</dt>
+            <dd id="add"></dd>
+        </dl>
+    </section></center>
+    <center><div class="account-bottom">
+        <h4 class="delete" id="delete">DELETE ACCOUNT</h4>
+        <h4 class="edit" id="edit">Edit Account</h4>
+    </div></center>
+      <script type="module" src="scripts/main.js"></script>
+      <script type="module" src="scripts/user-script.js"></script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="/public/styles/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h3>Machinist Orders</h3>
+            <a href="/public/home.html">HOME</a>
+            <a href="/public/account.html">ACCOUNT</a>
+            <a href="/public/payments.html">PAYMENTS</a>
+            <a href="/public/login.html" id="logout">LOGOUT</a>
+        </nav>
+    </header>
+
+    <section class="create-part">
+        <div class="login">
+          <h4>CREATE PART</h4>
+          <form id="part-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Part Name">
+            <br>
+            <label for="material">Material:</label>
+            <input type="text" name="material" id="material" placeholder="Material">
+            <br>
+            <label for="schematic">Schematic:</label>
+            <input type="text" name="schematic" id="schematic" placeholder="Schematic Link">
+            <br>
+            <label for="finishing">Finishing:</label>
+            <input type="text" name="finishing" id="finishing" placeholder="Finishing">
+            <br>
+            <input type="submit" id="loging-in" class="button"></input>
+          </form>
+        </div>
+    </section>
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/part-script.js"></script>
+</body>
+</html>
