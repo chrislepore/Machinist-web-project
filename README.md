@@ -42,8 +42,4 @@ Frameworks: None
 E-R Diagram
 -----------
 
-<<<<<<< HEAD
 ![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/E-R_Diagram.PNG)
-=======
-![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/E-R_Diagram.PNG)
->>>>>>> 1666261b3505fd9065a805b93d7d330902eff6f4
