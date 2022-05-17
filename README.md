@@ -25,17 +25,17 @@ aaaaaaaaaaaaaaaaa
 Technologies Used: Front-End
 -----------
 
-Technologies: None
-Programming languages: html, CSS and javascript
-Frameworks: None
+Technologies: None\
+Programming languages: html, CSS and javascript\
+Frameworks: None\
 
 
 Technologies Used: Back-End
 -----------
 
-Technologies: MySQL, Axios, Node.js, and Express.js
-Programming languages: javascript, SQL
-Frameworks: None
+Technologies: MySQL, Axios, Node.js, and Express.js\
+Programming languages: javascript, SQL\
+Frameworks: None\
 
 ********************************************************************************************************
 
