@@ -42,4 +42,4 @@ Frameworks: None
 E-R Diagram
 -----------
 
-![] (../images/E-R_Diagram.PNG)
+![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/E-R_Diagram.PNG)
