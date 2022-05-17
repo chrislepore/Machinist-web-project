@@ -12,9 +12,9 @@ router
     }
   })
 
-  .post('/UserParts', async (req, res) => {
+  .post('/userParts', async (req, res) => {
     try {
-      const part = await Part.getUserParts(req.body); 
+      const part = await Part.getUserParts(req.body.userId); 
       res.send({...part});
     } catch (error) {
       res.status(401).send({message: error.message});

@@ -22,33 +22,41 @@ let getParts = async () => { //get all parts
     return await con.query(sql);
 };
 
-async function getPart(part) { //gets all parts with a partID
-    let sql;
+async function getPart(part) { //gets all parts with a partID or part name
+  let sql;
+  if(part.partId) {
     sql = `SELECT * FROM parts
-    WHERE part_id = ${part.partId}
+      WHERE part_id = ${part.partId}
     `;
-    return await con.query(sql);
+  } else {
+    sql = `SELECT * FROM parts
+      WHERE name = "${part.name}" AND user_id = ${part.userId}
+    `;
+  }
+  return await con.query(sql);
 }
 
-async function getUserParts(user) { //gets all parts of a user
+async function getUserParts(userId) { //gets all parts of a user
     let sql;
 
     sql = `SELECT * FROM parts
-    WHERE user_fk = ${user.userId}
+    WHERE user_id = ${userId}
     `;
 
     return await con.query(sql);
 }
 
 async function createPart(part) { 
-  
-    const sql = `INSERT INTO parts (name, material, schematic, finishing, user_id)
-      VALUES ("${part.name}", "${part.material}", "${part.schematic}", "${part.finishing}", ${part.userId})
-    `;
-  
-    const insert = await con.query(sql);
-    const newPart = await getPart(part);
-    return newPart[0];
+  const u = partExists(part.name, part.userId);
+  if(u.length>0) throw Error("Username already exists");
+
+  const sql = `INSERT INTO parts (name, material, schematic, finishing, user_id)
+    VALUES ("${part.name}", "${part.material}", "${part.schematic}", "${part.finishing}", ${part.userId}) 
+  `;
+
+  const insert = await con.query(sql);
+  const newPart = await getPart(part);
+  return newPart[0];
 }
 
 async function deletePart(partId) {
@@ -69,6 +77,13 @@ async function editPart(part) {
     const update = await con.query(sql);
     const newPart = await getPart(part);
     return newPart[0];
+  }
+
+  async function partExists(name, userId) {
+    const sql = `SELECT * FROM parts
+      WHERE name = "${name}" AND user_id = ${userId}
+    `;
+    return await con.query(sql);
   }
 
   module.exports = { getParts, getPart, getUserParts, createPart, deletePart, editPart, createTable };

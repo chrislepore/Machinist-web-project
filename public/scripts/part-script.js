@@ -3,22 +3,26 @@ import
 from './main.js'
 
 
-//let partList = document.getElementsByClassName("PARTS_list");
-//if(partList) showUserParts();
+let partList = document.getElementById("PARTS_list");
+if(partList) showUserParts();
 
-/*
-function showUserParts(e) {
-  e.preventDefault();
-  
-  const u = getCurrentUser();
+
+function showUserParts() {
+
+  const user = getCurrentUser();
   const list = document.getElementById("P_list");
-  fetchData('/parts/UserParts', {user: u}, "POST")
+  fetchData('/parts/userParts', {userId: user.user_id}, "POST")
   .then((data) => { 
-      data.forEach(part => {
-          let li = document.createElement('li');
-          li.appendChild(document.createTextNode(part.name));
-          list.appendChild(li);
-      })
+    //list.appendChild(document.createTextNode(data[0].name));
+    //data.forEach(element => list.appendChild(document.createTextNode(element.name)));
+
+    data.forEach((part) => {
+      let item = document.createElement('il');
+      item.className = "part";
+      item.appendChild(document.createTextNode(part.name))
+      list.appendChild(item);
+    });
+      
   })
   .catch((error) => {
     const errText = error.message;
@@ -26,7 +30,6 @@ function showUserParts(e) {
     console.log(`Error! ${errText}`)
   });
 }
-*/
 
 let partForm = document.getElementById("part-form");
 if(partForm) partForm.addEventListener('submit', createPart);
@@ -34,7 +37,7 @@ if(partForm) partForm.addEventListener('submit', createPart);
 function createPart(e) {
   e.preventDefault();
 
-  const u = getCurrentUser();
+  const user = getCurrentUser();
   const n = document.getElementById("name").value;
   const m = document.getElementById("material").value;
   const s = document.getElementById("schematic").value;
@@ -42,7 +45,7 @@ function createPart(e) {
 
   if(!(n && m && s && f)) {confirm("Can't have empty inputs!"); return;}
 
-  fetchData('/parts/createPart', {name: n, material: m, schematic: s, finishing: f, userId: u.user_id}, "POST")
+  fetchData('/parts/createPart', {name: n, material: m, schematic: s, finishing: f, userId: user.user_id}, "POST")
   .then((data) => {
     if(!data.message) {
       window.location.href = "home.html";
