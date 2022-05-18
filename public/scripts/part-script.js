@@ -8,19 +8,19 @@ if(partList) showUserParts();
 
 
 function showUserParts() {
-
   const user = getCurrentUser();
   const list = document.getElementById("P_list");
   fetchData('/parts/userParts', {userId: user.user_id}, "POST")
   .then((data) => { 
     const d = Object.keys(data);
     for (let index = 0; index < d.length; index++) {
-      let item = document.createElement('il');
-      let br = document.createElement('br');
+      let item = document.createElement('li');
       item.className = "part";
+      item.id = `part-${index}`;
       item.appendChild(document.createTextNode(data[index].name))
+      item.href = "/public/parts.html";
       list.appendChild(item);
-      list.appendChild(br);
+      document.getElementById(`part-${index}`).addEventListener('click', function(){goToPart(data[index])});
     }
   })
   .catch((error) => {
@@ -29,6 +29,30 @@ function showUserParts() {
     console.log(`Error! ${errText}`)
   });
 }
+
+function goToPart(part) {
+  window.location.href = "parts.html";
+  console.log(part);
+  localStorage.setItem('part', JSON.stringify(part));
+}
+
+let partPro = document.getElementById("par");
+if(partPro) partProfile();
+
+function partProfile() {
+  let part = JSON.parse(localStorage.getItem('part'));
+  let n = document.getElementById("n");
+  let m = document.getElementById("m");
+  let s = document.getElementById("s");
+  let f = document.getElementById("f");
+  n.appendChild(document.createTextNode(`${part.name}`));
+  m.appendChild(document.createTextNode(`${part.material}`));
+  s.appendChild(document.createTextNode(`${part.schematic}`));
+  f.appendChild(document.createTextNode(`${part.finishing}`));
+  localStorage.removeItem('part');
+}
+
+
 
 let partForm = document.getElementById("part-form");
 if(partForm) partForm.addEventListener('submit', createPart);

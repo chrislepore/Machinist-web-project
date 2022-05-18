@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/public/styles/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h3>Machinist Orders</h3>
+            <a href="/public/home.html">HOME</a>
+            <a href="/public/account.html">ACCOUNT</a>
+            <a href="/public/create_part.html">CREATE PART</a>
+            <a href="/public/payments.html">PAYMENTS</a>
+            <a href="/public/login.html" id="logout">LOGOUT</a>
+        </nav>
+    </header>
+      
+    <center><section class="PART_profile" id="par">
+        <h2>PART INFO:</h2>
+        <dl>
+            <dt>Name:</dt>
+            <dd id="n"></dd>
+            <br>
+            <dt>Material:</dt>
+            <dd id="m"></dd>
+            <br>
+            <dt>Schematic:</dt>
+            <dd id="s"></dd>
+            <br>
+            <dt>Finishing:</dt>
+            <dd id="f"></dd>
+        </dl>
+    </section></center>
+    <center><div class="account-bottom">
+        <h4 class="delete" id="delete">DELETE ACCOUNT</h4>
+        <h4 class="edit" id="edit">Edit Account</h4>
+    </div></center>
+
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/part-script.js"></script>
+</body>
+</html>

@@ -80,11 +80,16 @@ p{
     padding: 15px;
 }
 
+.part {
+    font: bold 28px Arial;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
 .home_list {
     margin-left: 5%;
 }
 
-.account_info {
+.account_info , .PART_profile{
     background-color: #ffffff;
     text-align: center;
     border: 5px solid rgb(0, 0, 0);
