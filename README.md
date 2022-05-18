@@ -80,6 +80,32 @@ All command are used in terminal.
 Screenshots
 -----------
 
+![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/login.PNG)
+**LOGIN PAGE**
+
+
+![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/register.PNG)
+**REGISTER PAGE**
+
+
+![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/home.PNG)
+**HOME PAGE**
+
+
+![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/account.PNG)
+**ACCOUNT PAGE**
+
+
+![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/part_info.PNG)
+**PART INFO PAGE**
+
+
+![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/edit.PNG)
+**EDIT PAGE FOR ACCOUNT AND PARTS**
+
+
+![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/create_part.PNG)
+**CREATE PART PAGE**
 
 
 
