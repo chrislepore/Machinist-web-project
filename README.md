@@ -42,13 +42,13 @@ E-R Diagram
 
 ![](https://github.com/chrislepore/Machinist-web-project/blob/main/public/images/E-R_Diagram.PNG)
 
-**The User entity:** 
+**The User entity:** Holds the customer's information and is used to determine access to other entity's columns.
 
-**The Parts entity:**
+**The Parts entity:** Holds all the information for the part which was designed by the user. Can be linked to 1 order.
 
-**The Orders entity:**
+**The Orders entity:** Holds information about a order and is linked to multiple parts through a foreign key.
 
-**The Payments entity:**
+**The Payments entity:** Holds only the information for paying 1 order.
 
 
 ********************************************************************************************************
