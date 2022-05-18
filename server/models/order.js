@@ -21,7 +21,7 @@ let getOrders = async () => {
 async function getOrder(order) { //gets all orders with a orderID
   let sql;
   sql = `SELECT * FROM orders
-  WHERE part_id = ${order.orderId}
+  WHERE order_id = ${order.orderId}
   `;
   return await con.query(sql);
 }
@@ -37,20 +37,31 @@ async function getUserOrders(userId) { //gets all orders of a user
   return await con.query(sql);
 }
 
-async function createOrder(order) { 
+async function createOrder(order, part) { 
   
   const sql = `INSERT INTO orders (due_date, user_id)
     VALUES (${order.dueDate}, ${order.userId}) 
   `;
 
   const sql2 = `UPDATE parts SET
-  order_id = "${order.orderID}"
+  order_id = "${order.orderId}"
   WHERE part_id = ${part.partId}
-`;
+  `;
 
   const insert = await con.query(sql);
-  const newPart = await getPart(part);
-  return newPart[0];
+  const insert2 = await con.query(sql2);
+  const newOrder = await getOrder(order);
+  return newOrder[0];
 }
 
-module.exports = { getOrders, getOrder, getUserOrders, createTable };
+async function editOrder(order) {
+  const sql = `UPDATE parts SET
+      due_date = "${order.dueDate}"
+    WHERE order_id = ${order.orderId}
+  `;
+  const update = await con.query(sql);
+  const newOrder = await getOrder(order);
+  return newOrder[0];
+}
+
+module.exports = { getOrders, getOrder, getUserOrders, createOrder, editOrder, createTable };

@@ -80,6 +80,10 @@ p{
     padding: 15px;
 }
 
+.home_list {
+    margin-left: 5%;
+}
+
 .account_info {
     background-color: #ffffff;
     text-align: center;

@@ -67,23 +67,23 @@ async function deletePart(partId) {
 }
 
 async function editPart(part) {
-    const sql = `UPDATE parts SET
-        name = "${part.name}",
-        material = "${part.material}",
-        schematic = "${part.schematic}",
-        finishing = "${part.finishing}",
-      WHERE part_id = ${part.partId}
-    `;
-    const update = await con.query(sql);
-    const newPart = await getPart(part);
-    return newPart[0];
-  }
+  const sql = `UPDATE parts SET
+      name = "${part.name}",
+      material = "${part.material}",
+      schematic = "${part.schematic}",
+      finishing = "${part.finishing}",
+    WHERE part_id = ${part.partId}
+  `;
+  const update = await con.query(sql);
+  const newPart = await getPart(part);
+  return newPart[0];
+}
 
-  async function partExists(name, userId) {
-    const sql = `SELECT * FROM parts
-      WHERE name = "${name}" AND user_id = ${userId}
-    `;
-    return await con.query(sql);
-  }
+async function partExists(name, userId) {
+  const sql = `SELECT * FROM parts
+    WHERE name = "${name}" AND user_id = ${userId}
+  `;
+  return await con.query(sql);
+}
 
   module.exports = { getParts, getPart, getUserParts, createPart, deletePart, editPart, createTable };

@@ -13,7 +13,47 @@ async function createTable() {
 }
 createTable();
 
+let getPayments = async () => { 
+  const sql = `SELECT * FROM payments`;
+  return await con.query(sql);
+};
+
+async function getPayment(payment) { 
+const  ql = `SELECT * FROM payments
+    WHERE payment_id = ${payment.paymentId}
+  `;
+
+return await con.query(sql);
+}
+
+async function createPayment(payment) { 
+
+const sql = `INSERT INTO parts (payment_date, payment_amount, order_id)
+  VALUES ("${payment.paymentDate}", "${payment.paymentAmount}", ${payment.orderId}) 
+`;
+
+const insert = await con.query(sql);
+const newPayment = await getPayment(payment);
+return newPayment[0];
+}
+
+async function deletePayment(paymentId) {
+  const sql = `DELETE FROM payments 
+    WHERE payment_id = ${paymentId}
+  `;
+  await con.query(sql);
+}
+
+async function editPayment(payment) {
+const sql = `UPDATE payments SET
+    payment_date = "${payment.paymentDate}",
+    payment_amount = "${payment.paymentAmount}"
+  WHERE part_id = ${payment.paymentId}
+`;
+const update = await con.query(sql);
+const newPayment = await getPayment(payment);
+return newPayment[0];
+}
 
 
-
-module.exports = { createTable };
+module.exports = { getPayments, getPayment, createPayment, deletePayment, editPayment, createTable };
