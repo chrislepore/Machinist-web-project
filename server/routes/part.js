@@ -24,6 +24,7 @@ router
   .post('/createPart', async (req, res) => {
     try {
       const part = await Part.createPart(req.body); 
+      //console.log(part);
       res.send({...part});
     } catch (error) {
       res.status(401).send({message: error.message});

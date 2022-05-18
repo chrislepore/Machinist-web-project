@@ -47,8 +47,8 @@ async function getUserParts(userId) { //gets all parts of a user
 }
 
 async function createPart(part) { 
-  const u = partExists(part.name, part.userId);
-  if(u.length>0) throw Error("Username already exists");
+  const u = await partExists(part.name, part.userId);
+  if(u.length>0) throw Error("name already exists");
 
   const sql = `INSERT INTO parts (name, material, schematic, finishing, user_id)
     VALUES ("${part.name}", "${part.material}", "${part.schematic}", "${part.finishing}", ${part.userId}) 

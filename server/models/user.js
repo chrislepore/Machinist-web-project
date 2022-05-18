@@ -42,7 +42,7 @@ async function login(username, password) {
 }
 
 async function register(user) {
-  const u = userExists(user.username);
+  const u = await userExists(user.username);
   if(u.length>0) throw Error("Username already exists");
 
   const sql = `INSERT INTO users (username, user_password, Company, Address)

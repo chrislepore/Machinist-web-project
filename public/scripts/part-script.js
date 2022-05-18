@@ -13,16 +13,15 @@ function showUserParts() {
   const list = document.getElementById("P_list");
   fetchData('/parts/userParts', {userId: user.user_id}, "POST")
   .then((data) => { 
-    //list.appendChild(document.createTextNode(data[0].name));
-    //data.forEach(element => list.appendChild(document.createTextNode(element.name)));
-
-    data.forEach((part) => {
+    const d = Object.keys(data);
+    for (let index = 0; index < d.length; index++) {
       let item = document.createElement('il');
+      let br = document.createElement('br');
       item.className = "part";
-      item.appendChild(document.createTextNode(part.name))
+      item.appendChild(document.createTextNode(data[index].name))
       list.appendChild(item);
-    });
-      
+      list.appendChild(br);
+    }
   })
   .catch((error) => {
     const errText = error.message;
@@ -34,7 +33,7 @@ function showUserParts() {
 let partForm = document.getElementById("part-form");
 if(partForm) partForm.addEventListener('submit', createPart);
 
-function createPart(e) {
+function createPart(e) { 
   e.preventDefault();
 
   const user = getCurrentUser();
