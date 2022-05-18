@@ -6,6 +6,8 @@ if(getCurrentUser()) {
   window.location.href = "about.html";
 }
 
+if(!(window.location.pathname == '/public/parts.html')) localStorage.removeItem('part');
+
 // http://localhost:3000
 // Fetch method implementation:
 export async function fetchData(route = '', data = {}, methodType) {
@@ -34,7 +36,7 @@ export function setCurrentUser(user) {
 }
 
 export function removeCurrentUser() {
-  localStorage.removeItem('user')
+  localStorage.removeItem('user');
 }
 
 export function getCurrentUser() {

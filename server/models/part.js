@@ -67,11 +67,14 @@ async function deletePart(partId) {
 }
 
 async function editPart(part) {
+  const u = await partExists(part.name, part.userId);
+  if(u.length>0) throw Error("name already exists");
+
   const sql = `UPDATE parts SET
       name = "${part.name}",
       material = "${part.material}",
       schematic = "${part.schematic}",
-      finishing = "${part.finishing}",
+      finishing = "${part.finishing}"
     WHERE part_id = ${part.partId}
   `;
   const update = await con.query(sql);
